@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecionando...</title>
+    <script>
+        window.onload = function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var eventId = urlParams.get("id"); // Obtém o ID do evento
+            var deepLink = "apprenaline://ActivityScreen/" + eventId + "?type=event";
+
+            // Tenta abrir o app
+            window.location.href = deepLink;
+
+            // Se o app não abrir em 2s, redireciona para uma página alternativa
+            setTimeout(function() {
+                window.location.href = "https://apprenaline.com/"; // Página de fallback
+            }, 2000);
+        };
+    </script>
+</head>
+<body>
+    <p>Redirecionando para o aplicativo...</p>
+</body>
+</html>
