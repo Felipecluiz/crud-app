@@ -8,7 +8,8 @@
         window.onload = function() {
             var urlParams = new URLSearchParams(window.location.search);
             var eventId = urlParams.get("id"); // Obtém o ID do evento
-            var deepLink = "apprenaline://ActivityScreen/" + eventId + "?type=event";
+            var type = urlParams.get("type");
+            var deepLink = "apprenaline://ActivityScreen/" + eventId + "?type=" + type;
 
             // Tenta abrir o app
             window.location.href = deepLink;
